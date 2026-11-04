@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f6fc" />
+    <script>
+      // Apply the saved preference before styles/React paint; new users stay Light.
+      (function () {
+        var theme = 'light';
+        try {
+          if (localStorage.getItem('2048-ai-hint:theme:v1') === 'dark') theme = 'dark';
+        } catch (_) {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#1b2233' : '#f5f6fc');
+      })();
+    </script>
+    <meta name="description" content="เล่น 2048 พร้อมคำแนะนำภาษาไทยจาก Expectimax Search บันทึกเกมอัตโนมัติและย้อนกลับได้หนึ่งตา" />
+    <title>2048 AI Hint — Every move, a little smarter.</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
